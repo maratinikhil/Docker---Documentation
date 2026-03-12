@@ -487,10 +487,11 @@ Removes the container forcefully.
 Docker architecture consists of **three main components**.
 
 Docker Architecture Diagram
-flowchart LR
-    A[Docker Client] -->|Docker Commands<br>build / pull / run| B[Docker Host]
 
-    subgraph Docker Host
+flowchart LR
+    A[Docker Client] -->|Docker Commands: build / pull / run| B[Docker Host]
+
+    subgraph Docker_Host
         B --> C[Docker Daemon]
         C --> D[Docker Images]
         C --> E[Docker Containers]
