@@ -488,6 +488,7 @@ Docker architecture consists of **three main components**.
 
 Docker Architecture Diagram
 
+```mermaid
 flowchart LR
     A[Docker Client] -->|Docker Commands: build / pull / run| B[Docker Host]
 
@@ -505,7 +506,7 @@ flowchart LR
     H --> J[AWS ECR]
     H --> K[Azure Container Registry]
     H --> L[Google Artifact Registry]
-
+```
 ## 1. Docker Client
 
 Commands executed by the user:
@@ -629,6 +630,7 @@ Create → Start → Running → Pause → Unpause → Stop → Delete
 # Container Lifecycle Commands
 
 Docker Container Lifecycle Diagram
+```mermaid
 flowchart LR
     A[Create] --> B[Start]
     B --> C[Running]
@@ -637,6 +639,7 @@ flowchart LR
     E --> C
     C --> F[Stop]
     F --> G[Delete]
+```
 
 Docker Container Lifecycle Commands
 Stage	Command
