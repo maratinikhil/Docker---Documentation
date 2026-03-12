@@ -78,7 +78,7 @@ Understanding these architectures is essential for **DevOps Engineers, Cloud Eng
   - [Delete Container](#delete-container)
   - [Delete All Containers](#delete-all-containers)
   - [Kill Container](#kill-container)
-## 📑 Table of Contents
+##
 
 * [🚀 Static Website Deployment using Nginx on AWS EC2 (Ubuntu 24.04)](#-static-website-deployment-using-nginx-on-aws-ec2-ubuntu-2404)
 
@@ -132,6 +132,35 @@ Understanding these architectures is essential for **DevOps Engineers, Cloud Eng
   * [🛠 Technologies Used](#-technologies-used-2)
 
 ---
+
+* [🚀 Java Maven Application Deployment on AWS EC2](#-java-maven-application-deployment-on-aws-ec2)
+
+  * [📌 Project Overview](#-project-overview)
+  * [🏗 Architecture Flow](#-architecture-flow)
+  * [🛠 Technologies Used](#-technologies-used)
+  * [⚙️ Prerequisites](#️-prerequisites)
+  * [📖 Deployment Steps](#-deployment-steps)
+    * [☁️ Step 1: Create EC2 Instance](#️-step-1-create-ec2-instance)
+    * [🔑 Step 2: Connect to EC2 Instance](#-step-2-connect-to-ec2-instance)
+    * [🔄 Step 3: Update Package Repository](#-step-3-update-package-repository)
+    * [☕ Step 4: Install Java (OpenJDK 17)](#-step-4-install-java-openjdk-17)
+    * [🔍 Step 5: Verify Java Installation](#-step-5-verify-java-installation)
+    * [📥 Step 6: Download Apache Maven](#-step-6-download-apache-maven)
+    * [📦 Step 7: Extract Maven](#-step-7-extract-maven)
+    * [📁 Step 8: Move Maven to /opt Directory](#-step-8-move-maven-to-opt-directory)
+    * [📝 Step 9: Set Environment Variables](#-step-9-set-environment-variables)
+    * [🔄 Step 10: Apply Changes](#-step-10-apply-changes)
+    * [🔍 Step 11: Verify Maven Installation](#-step-11-verify-maven-installation)
+    * [📥 Step 12: Clone the Project](#-step-12-clone-the-project)
+    * [📂 Step 13: Navigate to Project Folder](#-step-13-navigate-to-project-folder)
+    * [🏗 Step 14: Build Application Using Maven](#-step-14-build-application-using-maven)
+    * [📁 Step 15: Navigate to Target Folder](#-step-15-navigate-to-target-folder)
+    * [▶️ Step 16: Run the Application](#-step-16-run-the-application)
+
+  * [🌐 Access the Application](#-access-the-application)
+  * [📂 Project Structure](#-project-structure-example)
+  * [🧠 Key Concepts](#-key-concepts)
+
 
 * [🚀 Deploy Java Maven Application using Docker (Multi-Stage Build) on AWS EC2](#-deploy-java-maven-application-using-docker-multi-stage-build-on-aws-ec2)
 
@@ -1515,220 +1544,291 @@ Approximate comparison:
 ---
 
 
-🚀 Java Maven Application Deployment on AWS EC2
+# 🚀 Java Maven Application Deployment on AWS EC2
 
-"Java" (https://img.shields.io/badge/Java-17-orange)
-"Maven" (https://img.shields.io/badge/Maven-BuildTool-red)
-"Ubuntu" (https://img.shields.io/badge/Ubuntu-24.04-E95420)
-"AWS" (https://img.shields.io/badge/AWS-EC2-yellow)
-
----
-
-📌 Project Overview
-
-This guide explains how to install Java, Maven, and deploy a Java Maven application manually on an AWS EC2 instance running Ubuntu 24.04.
-
-The application is built using Apache Maven which uses a configuration file called "pom.xml" to manage dependencies and build the project.
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Maven](https://img.shields.io/badge/Maven-BuildTool-red)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420)
+![AWS](https://img.shields.io/badge/AWS-EC2-yellow)
 
 ---
 
-🏗 Architecture Flow
+# 📌 Project Overview
 
-Developer
-   │
-   ▼
-GitHub Repository
-   │
-   ▼
-AWS EC2 Instance (Ubuntu 24.04)
-   │
-   ├── Install Java (OpenJDK 17)
-   ├── Install Apache Maven
-   ├── Clone Application
-   ├── Build using Maven
-   ▼
-Run JAR File
-   │
-   ▼
-Application Running on Port 8080
+This guide explains how to **install Java, Maven, and deploy a Java Maven application manually on an AWS EC2 instance running Ubuntu 24.04**.
+
+The application is built using **Apache Maven**, which uses the configuration file **`pom.xml`** to manage:
+
+📦 Dependencies
+⚙️ Build configuration
+🧩 Plugins
+📄 Project metadata
 
 ---
 
-🛠 Technologies Used
+# 🏗 Architecture Flow
 
-Tool| Purpose
-AWS EC2| Cloud Virtual Server
-Ubuntu 24.04| Operating System
-OpenJDK 17| Java Runtime
-Apache Maven| Build Tool
-Git| Source Code Management
+```
+👨‍💻 Developer
+        │
+        ▼
+📂 GitHub Repository
+        │
+        ▼
+☁️ AWS EC2 Instance (Ubuntu 24.04)
+        │
+        ├── ⚙️ Install Java (OpenJDK 17)
+        ├── 📦 Install Apache Maven
+        ├── 📥 Clone Application
+        ├── 🏗 Build using Maven
+        ▼
+▶️ Run JAR File
+        │
+        ▼
+🌐 Application Running on Port 8080
+```
 
 ---
 
-⚙️ Prerequisites
+# 🛠 Technologies Used
+
+| 🔧 Tool         | 📌 Purpose             |
+| --------------- | ---------------------- |
+| ☁️ AWS EC2      | Cloud Virtual Server   |
+| 🐧 Ubuntu 24.04 | Operating System       |
+| ☕ OpenJDK 17    | Java Runtime           |
+| 📦 Apache Maven | Build Tool             |
+| 🔑 Git          | Source Code Management |
+
+---
+
+# ⚙️ Prerequisites
 
 Before starting, make sure you have:
 
-- AWS Account
-- EC2 Instance running Ubuntu 24.04
-- Security Group allowing SSH (22) and HTTP (8080)
+🔑 AWS Account
+🖥 EC2 Instance running **Ubuntu 24.04**
+🌐 Security Group allowing:
+
+* SSH **(22)**
+* Application Port **(8080)**
 
 ---
 
-📖 Deployment Steps
+# 📖 Deployment Steps
 
 ---
 
-1️⃣ Create EC2 Instance
+## ☁️ Create EC2 Instance
 
-Create an AWS EC2 instance using Ubuntu 24.04 AMI.
+Create an **AWS EC2 instance** using **Ubuntu 24.04 AMI**.
 
 ---
 
-2️⃣ Connect to EC2 Instance
+## 🔑 Connect to EC2 Instance
 
+```bash
 ssh ubuntu@<public-ip>
+```
 
 ---
 
-3️⃣ Update Package Repository
+## 🔄 Update Package Repository
 
+```bash
 sudo apt update
+```
 
 ---
 
-4️⃣ Install Java (OpenJDK 17)
+## ☕ Install Java (OpenJDK 17)
 
+```bash
 sudo apt install openjdk-17-jdk -y
+```
 
 ---
 
-5️⃣ Verify Java Installation
+## 🔍 Verify Java Installation
 
+```bash
 java --version
+```
 
 ---
 
-6️⃣ Download Apache Maven
+## 📥 Download Apache Maven
 
+```bash
 wget https://downloads.apache.org/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz
+```
 
 ---
 
-7️⃣ Extract Maven
+## 📦 Extract Maven
 
+```bash
 sudo tar -xvf apache-maven-3.9.12-bin.tar.gz
+```
 
 ---
 
-8️⃣ Move Maven to /opt Directory
+## 📁 Move Maven to `/opt` Directory
 
+```bash
 sudo mv apache-maven-3.9.12 /opt/
+```
 
 ---
 
-9️⃣ Set Environment Variables
+## 📝 Set Environment Variables
 
-Edit ".bashrc" file
+Edit `.bashrc` file:
 
+```bash
 vi ~/.bashrc
+```
 
 Add the following lines:
 
+```bash
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 export MAVEN_HOME=/opt/apache-maven-3.9.12
 export M2_HOME=/opt/apache-maven-3.9.12
 export PATH=$MAVEN_HOME/bin:$PATH
+```
 
 ---
 
-🔟 Apply Changes
+## 🔄 Apply Changes
 
+```bash
 source ~/.bashrc
+```
 
 ---
 
-1️⃣1️⃣ Verify Maven Installation
+## 🔍 Verify Maven Installation
 
+```bash
 mvn --version
+```
 
 ---
 
-1️⃣2️⃣ Clone the Project
+## 📥 Clone the Project
 
+```bash
 git clone <github-project-url>
-
----
-
-1️⃣3️⃣ Navigate to Project Folder
+```
 
 Example:
 
+```bash
+git clone https://github.com/spring-projects/spring-petclinic.git
+```
+
+---
+
+## 📂 Navigate to Project Folder
+
+```bash
 cd spring-petclinic
+```
 
 ---
 
-1️⃣4️⃣ Build Application Using Maven
+## 🏗 Build Application Using Maven
 
+```bash
 mvn package
+```
 
-This command creates a JAR file inside the target directory.
+This command creates a **JAR file** inside the `target` directory.
 
 ---
 
-1️⃣5️⃣ Navigate to Target Folder
+## 📁 Navigate to Target Folder
 
+```bash
 cd target
+```
 
 ---
 
-1️⃣6️⃣ Run the Application
+## ▶️ Run the Application
 
+```bash
 java -jar <application-name>.jar
+```
 
 Example:
 
+```bash
 java -jar spring-petclinic-3.0.0.jar
+```
 
 ---
 
-🌐 Access the Application
+# 🌐 Access the Application
 
-Open the browser:
+Open your browser and navigate to:
 
+```
 http://<public-ip>:8080
+```
+
+Example:
+
+```
+http://54.221.10.22:8080
+```
 
 ---
 
-📂 Project Structure (Example)
+# 📂 Project Structure (Example)
 
+```
 project-name
 │
-├── src
+├── 📁 src
 │   ├── main
 │   └── test
 │
-├── pom.xml
+├── 📄 pom.xml
 │
-└── target
+└── 📦 target
      └── application.jar
+```
 
 ---
 
-🧠 Key Concepts
+# 🧠 Key Concepts
 
-Maven
+### 📦 Maven
 
-Maven is a build automation tool used for Java projects.
+Maven is a **build automation tool used for Java projects**.
 
-pom.xml
+It helps with:
 
-"pom.xml" contains:
+* Dependency management
+* Project build lifecycle
+* Packaging applications
 
-- Dependencies
-- Plugins
-- Build configuration
-- Project information
+---
+
+### 📄 pom.xml
+
+`pom.xml` contains:
+
+* 📦 Dependencies
+* 🔌 Plugins
+* ⚙️ Build configuration
+* 📊 Project metadata
+
+---
+
+⭐ If this project helps you, consider giving it a **star on GitHub**.
 
 ---
 
