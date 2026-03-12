@@ -486,6 +486,25 @@ Removes the container forcefully.
 
 Docker architecture consists of **three main components**.
 
+Docker Architecture Diagram
+flowchart LR
+    A[Docker Client] -->|Docker Commands<br>build / pull / run| B[Docker Host]
+
+    subgraph Docker Host
+        B --> C[Docker Daemon]
+        C --> D[Docker Images]
+        C --> E[Docker Containers]
+        C --> F[Docker Networks]
+        C --> G[Docker Volumes]
+    end
+
+    C -->|Pull / Push Images| H[Docker Registry]
+
+    H --> I[Docker Hub]
+    H --> J[AWS ECR]
+    H --> K[Azure Container Registry]
+    H --> L[Google Artifact Registry]
+
 ## 1. Docker Client
 
 Commands executed by the user:
@@ -607,6 +626,28 @@ Create → Start → Running → Pause → Unpause → Stop → Delete
 ---
 
 # Container Lifecycle Commands
+
+Docker Container Lifecycle Diagram
+flowchart LR
+    A[Create] --> B[Start]
+    B --> C[Running]
+    C --> D[Pause]
+    D --> E[Unpause]
+    E --> C
+    C --> F[Stop]
+    F --> G[Delete]
+
+Docker Container Lifecycle Commands
+Stage	Command
+Create	docker create nginx
+Start	docker start <container>
+Run	docker run nginx
+Pause	docker pause <container>
+Unpause	docker unpause <container>
+Stop	docker stop <container>
+Delete	docker rm <container>
+Kill	docker kill <container>
+
 
 ## Create Container
 
