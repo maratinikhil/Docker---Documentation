@@ -21,15 +21,16 @@ Understanding these architectures is essential for **DevOps Engineers, Cloud Eng
 
 # 📚 Table of Contents
 
-* [Overview](#overview)
-* [Gen-1 Architecture](#gen-1-architecture-traditional-physical-server)
-* [Gen-2 Architecture](#gen-2-architecture-virtualization)
-* [Gen-3 Architecture](#gen-3-architecture-containerization)
-* [Architecture Comparison](#architecture-comparison)
-* [Real-World Use Cases](#real-world-use-cases)
-* [Technologies Used](#technologies-used)
-* [Conclusion](#conclusion)
+# Table of Contents
 
+- [Overview](#overview)
+- [Gen-1 Architecture](#gen-1-architecture-traditional-physical-server)
+- [Gen-2 Architecture](#gen-2-architecture-virtualization)
+- [Gen-3 Architecture](#gen-3-architecture-containerization)
+- [Architecture Comparison](#architecture-comparison)
+- [Real-World Use Cases](#real-world-use-cases)
+- [Technologies Used](#technologies-used)
+- [Conclusion](#conclusion)
 ---
 
 # 📖 Overview
