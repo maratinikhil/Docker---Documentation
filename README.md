@@ -192,6 +192,21 @@
   * [🚀 Production Recommendations](#-production-recommendations)
   * [📚 References](#-references)
 
+* [🐳 Deploying NopCommerce (.NET 9) Using Dockerfile on Ubuntu 24.04](#-deploying-nopcommerce-net-9-using-dockerfile-on-ubuntu-2404)
+
+  * [📌 Overview](#-overview-1)
+  * [🏗 Architecture](#-architecture-5)
+  * [🧰 Technology Stack](#-technology-stack-1)
+  * [📋 Prerequisites](#-prerequisites-5)
+  * [⚡ Implementation Steps](#-implementation-steps)
+  * [🌐 Access the Application](#-access-the-application-2)
+  * [📦 Useful Docker Commands](#-useful-docker-commands)
+  * [🚀 Production Recommendations](#-production-recommendations-1)
+  * [📚 References](#-references-1)
+
+
+---
+
 ---
 
 # DevOps Architecture Evolution
@@ -213,21 +228,6 @@ Understanding these architectures is essential for **DevOps Engineers, Cloud Eng
 
 ---
 
-
-* [🐳 Deploying NopCommerce (.NET 9) Using Dockerfile on Ubuntu 24.04](#-deploying-nopcommerce-net-9-using-dockerfile-on-ubuntu-2404)
-
-  * [📌 Overview](#-overview-1)
-  * [🏗 Architecture](#-architecture-5)
-  * [🧰 Technology Stack](#-technology-stack-1)
-  * [📋 Prerequisites](#-prerequisites-5)
-  * [⚡ Implementation Steps](#-implementation-steps)
-  * [🌐 Access the Application](#-access-the-application-2)
-  * [📦 Useful Docker Commands](#-useful-docker-commands)
-  * [🚀 Production Recommendations](#-production-recommendations-1)
-  * [📚 References](#-references-1)
-
-
----
 
 # Overview
 
