@@ -1,24 +1,5 @@
 # Docker Documentation
 
-# DevOps Architecture Evolution
-
-![DevOps](https://img.shields.io/badge/DevOps-Architecture-blue)
-![Docker](https://img.shields.io/badge/Container-Docker-2496ED)
-![Cloud](https://img.shields.io/badge/Cloud-AWS-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
-
-This project explains the **evolution of modern application deployment architectures** used in DevOps.
-
-We explore how infrastructure evolved from:
-
-1. **Traditional Physical Servers (Gen-1)**
-2. **Virtual Machines & Hypervisors (Gen-2)**
-3. **Containerization with Docker (Gen-3)**
-
-Understanding these architectures is essential for **DevOps Engineers, Cloud Engineers, and Software Developers**.
-
----
-
 # Table of Contents
 
 - [Docker Documentation](#docker-documentation)
@@ -212,6 +193,26 @@ Understanding these architectures is essential for **DevOps Engineers, Cloud Eng
   * [📚 References](#-references)
 
 ---
+
+# DevOps Architecture Evolution
+
+![DevOps](https://img.shields.io/badge/DevOps-Architecture-blue)
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED)
+![Cloud](https://img.shields.io/badge/Cloud-AWS-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+This project explains the **evolution of modern application deployment architectures** used in DevOps.
+
+We explore how infrastructure evolved from:
+
+1. **Traditional Physical Servers (Gen-1)**
+2. **Virtual Machines & Hypervisors (Gen-2)**
+3. **Containerization with Docker (Gen-3)**
+
+Understanding these architectures is essential for **DevOps Engineers, Cloud Engineers, and Software Developers**.
+
+---
+
 
 * [🐳 Deploying NopCommerce (.NET 9) Using Dockerfile on Ubuntu 24.04](#-deploying-nopcommerce-net-9-using-dockerfile-on-ubuntu-2404)
 
